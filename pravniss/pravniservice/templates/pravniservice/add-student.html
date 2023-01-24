@@ -1,0 +1,23 @@
+{% load static %}
+
+<h1>{% block title %}Pravni fakultet SS - students{% endblock %}</h1>
+
+{% block site_css %}
+  <link rel="stylesheet" href="{% static 'pravniservice/styles/base.css' %}">
+{% endblock %}
+
+{% block main_heading %}
+Dodaj novog studenta:
+{% endblock %}
+
+<section id="registration">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <ul>
+      {{ form.as_ul }}
+    </ul>
+    <div id="registration-actions">
+      <button>Potvrdi</button>
+    </div>
+  </form>
+</section>
