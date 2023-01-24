@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProfessorDto {
+    private Long id;
     private String name;
     private String surname;
     private String faculty;
+    private String email;
 }

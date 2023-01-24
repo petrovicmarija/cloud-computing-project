@@ -14,3 +14,4 @@ class AddProfessorForm(forms.Form):
     name = forms.CharField(label='Name')
     surname = forms.CharField(label='Surname')
     faculty = forms.CharField(label='Faculty name')
+    email = forms.EmailField(label='Email')

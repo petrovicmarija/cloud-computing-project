@@ -2,9 +2,6 @@ package com.example.unsss.controller;
 
 import com.example.unsss.dto.StudentDto;
 import com.example.unsss.service.StudentService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +15,10 @@ public class StudentController {
     }
 
     @PostMapping()
-    public ResponseEntity<StudentDto> addStudent(@RequestBody StudentDto student) {
-        return new ResponseEntity<>(student, HttpStatus.OK);
+    public String addStudent(@RequestBody StudentDto student) {
+        if (studentService.save(student))
+            return "CREATED";
+        else
+            return "BAD_REQUEST";
     }
 }

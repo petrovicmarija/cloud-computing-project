@@ -18,4 +18,5 @@ class ProfessorSerializer(serializers.ModelSerializer):
         fields = ('id',
                   'name',
                   'surname',
-                  'faculty')
+                  'faculty',
+                  'email')

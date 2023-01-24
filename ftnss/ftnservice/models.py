@@ -19,6 +19,7 @@ class Professor(models.Model):
     name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     faculty = models.CharField(max_length=100)
+    email = models.EmailField(null=True)
 
     def __str__(self):
-        return f'{self.id} {self.name} {self.surname} {self.faculty}'
+        return f'{self.id} {self.name} {self.surname} {self.faculty} {self.email}'
