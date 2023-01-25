@@ -10,6 +10,6 @@ RUN mvn package -DskipTests
 
 FROM openjdk:17 AS unsAppRuntime
 WORKDIR /app
-COPY --from=unsAppBuild /root/src/backend/target/uns-exe.jar ./
+COPY --from=unsAppBuild /root/src/backend/target/unsss-0.0.1-SNAPSHOT.jar ./
 EXPOSE 8080
-CMD java -jar uns-exe.jar
+CMD java -jar unsss-0.0.1-SNAPSHOT.jar
