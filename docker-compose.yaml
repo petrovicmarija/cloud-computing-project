@@ -25,6 +25,16 @@ services:
     volumes:
       - ./data-uns:/var/lib/postgresql/data
 
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - uns-app1
+      - uns-app2
+    ports:
+      - "80:80"
+
   ftn-app:
     image: marija5rovic/ftnss:latest
     ports:
