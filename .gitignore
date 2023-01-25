@@ -129,3 +129,14 @@ dmypy.json
 .pyre/
 
 .idea/
+
+data-ftn
+data-pmf
+data-pravni
+data-uns
+ftn_app/uploads/images
+ftn_app/slike
+pmf_app/uploads/images
+pmf_app/slike
+pravni_app/uploads/images
+pravni_app/slike
