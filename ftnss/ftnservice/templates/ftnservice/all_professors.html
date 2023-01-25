@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FTN: Prijavi studenta</title>
+<!--  <link rel="stylesheet" type="text/css" href="{% static 'ftn/styles/list.css' %}">-->
+</head>
+
+{% if not_empty %}
+
+<h2>Lista profesora</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>IME</th>
+            <th>PREZIME</th>
+            <th>EMAIL</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for professor in professors %}
+        <tr>
+            <td>{{professor.name}}</td>
+            <td>{{professor.surname}}</td>
+            <td>{{professor.email}}</td>
+        </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+</div>
+{% else %}
+<h2>Nije pronadjen nijedan profesor</h2>
+{% endif %}
+</html>

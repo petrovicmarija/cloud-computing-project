@@ -1,0 +1,36 @@
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FTN: Prijavi studenta</title>
+<!--  <link rel="stylesheet" type="text/css" href="{% static 'ftn/styles/list.css' %}">-->
+</head>
+
+{% if not_empty %}
+
+<h2>Lista studenata</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>BROJ INDEKSA</th>
+            <th>IME</th>
+            <th>PREZIME</th>
+            <th>FAKULTET</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{student.index}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.surname}}</td>
+            <td>{{student.faculty}}</td>
+        </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+</div>
+
+{% endif %}
+</html>

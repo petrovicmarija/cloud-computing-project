@@ -85,6 +85,22 @@ def add_professor(request):
         return render(request, 'ftnservice/add-professor.html')
 
 
+def get_students(request):
+    students = Student.objects.all()
+    return render(request, "ftn/all_students.html", {
+        'not_empty': True,
+        'students': students
+    })
+
+
+def get_professors(request):
+    professors = Professor.objects.all()
+    return render(request, "ftn/all_professors.html", {
+        'not_empty': True,
+        'professors': professors
+    })
+
+
 @api_view(['POST'])
 def save_new_student(request):
     student_data = JSONParser().parse(request)
