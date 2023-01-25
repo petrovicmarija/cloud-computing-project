@@ -3,7 +3,7 @@
 #ADD target/uns-app-0.0.1-SNAPSHOT.jar app.jar
 #ENTRYPOINT ["java","-jar","app.jar"]
 
-FROM maven:4.0.0-openjdk-17-slim AS unsAppBuild
+FROM maven:3.8.5-openjdk-17-slim AS unsAppBuild
 WORKDIR /root/src/backend
 COPY . .
 RUN mvn package -DskipTests
