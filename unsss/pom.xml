@@ -98,6 +98,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>unsss-exe</finalName>
 	</build>
 
 </project>
