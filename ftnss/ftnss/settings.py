@@ -46,17 +46,12 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:8081',
-#     'http://localhost:8080',
-# )
 
 ROOT_URLCONF = 'ftnss.urls'
 
@@ -83,15 +78,19 @@ WSGI_APPLICATION = 'ftnss.wsgi.application'
 
 DATABASES = {
     # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'ftn-db',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'root',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '5432',
     # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ftn-db',
         'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'postgres',
+        'HOST': 'ftn-postgres',
         'PORT': '5432',
     }
 }

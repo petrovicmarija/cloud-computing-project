@@ -1,0 +1,105 @@
+version: '3.1'
+services:
+  uns-app1:
+    image: marija5rovic/unsss:latest
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres
+
+  uns-app2:
+    image: marija5rovic/unsss:latest
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=uns-db
+    volumes:
+      - ./data-uns:/var/lib/postgresql/data
+
+  ftn-app:
+    image: marija5rovic/ftnss:latest
+    ports:
+      - "8001:8081"
+    volumes:
+      - ./ftn_app/slike:/app/uploads/images
+    depends_on:
+      ftn-postgres:
+        condition: service_healthy
+
+  ftn-postgres:
+    image: postgres
+    ports:
+      - "5436:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ftn-db
+    volumes:
+      - ./data-ftn:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
+
+  pmf-app:
+    image: marija5rovic/pmfss:latest
+    ports:
+      - "8002:8081"
+    volumes:
+      - ./pmf_app/slike:/app/uploads/images
+    depends_on:
+      pmf-postgres:
+        condition: service_healthy
+
+  pmf-postgres:
+    image: postgres
+    ports:
+      - "5437:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=pmf-db
+    volumes:
+      - ./data-pmf:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
+
+  pravni-app:
+    image: marija5rovic/pravniss:latest
+    ports:
+      - "8003:8081"
+    volumes:
+      - ./pravni_app/slike:/app/uploads/images
+    depends_on:
+      pravni-postgres:
+        condition: service_healthy
+
+  pravni-postgres:
+    image: postgres
+    ports:
+      - "5438:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=pravni-db
+    volumes:
+      - ./data-pmf:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
+
