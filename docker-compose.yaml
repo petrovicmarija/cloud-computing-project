@@ -64,7 +64,7 @@ services:
   pmf-app:
     image: marija5rovic/pmfss:latest
     ports:
-      - "8002:8081"
+      - "8009:8081"
     volumes:
       - ./pmf_app/slike:/app/uploads/images
     depends_on:
