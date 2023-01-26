@@ -64,7 +64,7 @@ services:
   pmf-app:
     image: marija5rovic/pmfss:latest
     ports:
-      - "8009:8081"
+      - "8009:8082"
     volumes:
       - ./pmf_app/slike:/app/uploads/images
     depends_on:
@@ -90,7 +90,7 @@ services:
   pravni-app:
     image: marija5rovic/pravniss:latest
     ports:
-      - "8003:8081"
+      - "8003:8083"
     volumes:
       - ./pravni_app/slike:/app/uploads/images
     depends_on:
