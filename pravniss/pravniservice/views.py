@@ -29,7 +29,7 @@ def add_student(request):
                                                            index=student_index, faculty=student_faculty)
 
                 body = JsonResponse(StudentSerializer(student).data)
-                response = requests.post("http://localhost:8080/students", headers={
+                response = requests.post("http://nginx:80/students", headers={
                     'Content-Type': 'application/json',
                     'Accept-Encoding': 'gzip.deflate.br',
                     'Connection': 'keep-alive'
@@ -64,7 +64,7 @@ def add_professor(request):
                                                                email=professor_email)
 
                 body = JsonResponse(ProfessorSerializer(professor).data)
-                response = requests.post("http://localhost:8080/professors", headers={
+                response = requests.post("http://nginx:80/professors", headers={
                     'Content-Type': 'application/json',
                     'Accept-Encoding': 'gzip.deflate.br',
                     'Connection': 'keep-alive'
