@@ -87,7 +87,7 @@ def add_professor(request):
 
 def get_students(request):
     students = Student.objects.all()
-    return render(request, "ftn/all_students.html", {
+    return render(request, "ftnservice/all_students.html", {
         'not_empty': True,
         'students': students
     })
@@ -95,7 +95,7 @@ def get_students(request):
 
 def get_professors(request):
     professors = Professor.objects.all()
-    return render(request, "ftn/all_professors.html", {
+    return render(request, "ftnservice/all_professors.html", {
         'not_empty': True,
         'professors': professors
     })
